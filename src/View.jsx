@@ -14,12 +14,12 @@ export const View = () => {
     }
 
     const fetchdata = async(e)=>{
-        await axios.get('https://cc-yp29.onrender.com/gokul/get').then((res)=>setTotal(res.data)).catch((error)=>console.log(error))
+        await axios.get('https://bc-oxbl.onrender.com/gokul/get').then((res)=>setTotal(res.data)).catch((error)=>console.log(error))
     }
 
   const handledelete = async(datas) =>{
     try {
-        await axios.delete(`https://cc-yp29.onrender.com/gokul/get/${datas}`)
+        await axios.delete(`https://bc-oxbl.onrender.com/gokul/get/${datas}`)
         fetchdata()
     } catch (error) {
         console.log(error)
@@ -31,21 +31,46 @@ export const View = () => {
     },[])
 
    const filtering = total.filter((filling)=> filling.myname.toLowerCase().includes(searchdata.toLowerCase()))
+   console.log(filtering);
+   
   
   return (
-    <div>View
-    <input type="text" value={searchdata} onChange={(event)=>setSearchdata(event.target.value)} />
-        {
+    <div>
+    <div className="container-fluid  mb-4 sticky-top bg-white task-top task-nav">
+      <div className="row">
+        <div className="col-md-6">
+        <h1 className='ms-3'>Task Manager</h1>
+        </div>
+        <div className="col-md-6">
+        <input type="text" className='form-control mt-2 w-75 ms-5' placeholder='Search' value={searchdata} onChange={(event)=>setSearchdata(event.target.value)} />
+        
+        </div>
+      </div>
+    </div>
+        <Form editdata={editdata} setTotaldata={setTotal} onrefresh={()=>{setEditdata(null);fetchdata()}} />
+        
+        <div className="container">
+          <div className="row">
+          {
             filtering.map((dd,index)=>
-                <div key={index}>
-                   <p>{dd.myname}</p>
-                   <p>{dd.myage}</p>
-                   <button onClick={()=>handleEdit(dd)}>Edit</button>
-                   <button onClick={()=>handledelete(dd._id)}>Delete</button>
+              <div className='col-md-3' key={index}>
+                <div className='border border-light-subtle p-5 mb-2 mb-md-4 h-75 task'>
+                    <p className='text-center'>{dd.myname}</p>
+                <p className='text-center'>{dd.myage}</p>
+                <div className="d-flex gap-3 mb-2 justify-content-center">
+                <button className='btn btn-success' onClick={()=>handleEdit(dd)}>Edit</button>
+                <button className='btn btn-danger' onClick={()=>handledelete(dd._id)}>Delete</button>
+                    </div>
+
                 </div>
+              </div>
             )
         }
-        <Form editdata={editdata} setTotaldata={setTotal} onrefresh={()=>{setEditdata(null);fetchdata()}} />
+          </div>
+        </div>
+
+      
+
     </div>
   )
 }
