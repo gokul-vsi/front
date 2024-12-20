@@ -33,19 +33,20 @@ export const Form = ({editdata,setTotal,onrefresh}) => {
     }
   return (
     <div>
-        <div className="container d-flex flex-row justify-content-center mb-4  mt-5">
-          <div className="row">
-            <div className="col-md-12 task-form p-md-5">
-            <form onSubmit={handlesubmit}>
-            <input type="text" className=' table form-control  mt-4 mb-4' placeholder='Enter your Role' value={myname} onChange={(event)=>setMyname(event.target.value)} />
-            <input type="text" className='table form-control  mb-4' placeholder='Enter your  Today Task ' value={myage} onChange={(event)=>setMyage(event.target.value)} />
+            <div className="container d-flex flex-row justify-content-center mb-5 mt-3">
+             <div className="row">
+              <div className="col-md-12">
+              <form onSubmit={handlesubmit}>
+            <input type="text" className=' table form-control' placeholder='Enter your Role' value={myname} onChange={(event)=>setMyname(event.target.value)} />
+            <input type="text" className='table form-control ' placeholder='Enter your  Today Task ' value={myage} onChange={(event)=>setMyage(event.target.value)} />
             <div className='d-flex justify-content-center'>
-            <input type="submit" className='btn btn-primary mb-2 mb-md-0 mb-lg-0 mb-xl-0'  />
+            <input type="submit" className='btn btn-primary'  />
             </div>
         </form>
+              </div>
+             </div>
             </div>
-          </div>
-        </div>
+           
     </div>
   )
 }

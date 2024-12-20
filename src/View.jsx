@@ -36,22 +36,26 @@ export const View = () => {
   
   return (
     <div>
-    <div className="container-fluid  mb-4 sticky-top bg-white task-top task-nav">
-      <div className="row">
-        <div className="col-md-6">
-        <h1 className='ms-3'>Task Manager</h1>
+    <div>
+      
+      
+        <h1 className='text-center mt-5 mb-3'>Task Manager</h1>
         </div>
-        <div className="col-md-6">
-        <input type="text" className='form-control mt-2 w-75 ms-5' placeholder='Search' value={searchdata} onChange={(event)=>setSearchdata(event.target.value)} />
-        
-        </div>
-      </div>
-    </div>
-        <Form editdata={editdata} setTotaldata={setTotal} onrefresh={()=>{setEditdata(null);fetchdata()}} />
-        
+       
+  
         <div className="container">
           <div className="row">
-          {
+            <div className="col-md-12">
+            {/* <input type="text" className=' d-flex justify-content-center' placeholder='Search' value={searchdata} onChange={(event)=>setSearchdata(event.target.value)} /> */}
+            </div>
+          </div>
+        </div>
+        
+        <Form editdata={editdata} setTotaldata={setTotal} onrefresh={()=>{setEditdata(null);fetchdata()}} />
+        
+          <div className="container">
+            <div className="row">
+            {
             filtering.map((dd,index)=>
               <div className='col-md-3' key={index}>
                 <div className='border border-light-subtle p-5 mb-2 mb-md-4 h-75 task'>
@@ -66,8 +70,9 @@ export const View = () => {
               </div>
             )
         }
+            </div>
           </div>
-        </div>
+          
 
       
 

@@ -1,19 +1,7 @@
-
-/* @media (max-width: 768px) {
-    .task-form{
-        width: 200px;
-        height: 100px;
-    }
-} */
-.task-top{
-    box-shadow: 5px 5px 10px #ccc;
-}
-.task-nav{
-    background-color: #A888B5 !important;
-}
-.task-form{
-    box-shadow: 5px 5px 10px #ccc;
+body{
+    background-color: #F5EFE7;
 }
 .task{
+    background-color: #fff;
     border-radius: 5px;
 }
